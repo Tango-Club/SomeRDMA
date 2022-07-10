@@ -4,7 +4,6 @@ namespace kv {
 
 Engine::~Engine() {}
 
-
 LocalEngine::~LocalEngine() {}
 
 /**
@@ -14,7 +13,7 @@ LocalEngine::~LocalEngine() {}
  * @return {bool} true for success
  */
 bool LocalEngine::start(const std::string addr, const std::string port) {
-  return true;
+    return true;
 }
 
 /**
@@ -27,7 +26,9 @@ void LocalEngine::stop() {}
  * @description: get engine alive state
  * @return {bool}  true for alive
  */
-bool LocalEngine::alive() { return true; }
+bool LocalEngine::alive() {
+    return true;
+}
 
 /**
  * @description: put a key-value pair to engine
@@ -36,7 +37,8 @@ bool LocalEngine::alive() { return true; }
  * @return {bool} true for success
  */
 bool LocalEngine::write(const std::string key, const std::string value) {
-  return true;
+    mp[key] = value;
+    return true;
 }
 
 /**
@@ -45,10 +47,10 @@ bool LocalEngine::write(const std::string key, const std::string value) {
  * @param {string} &value
  * @return {bool}  true for success
  */
-bool LocalEngine::read(const std::string key, std::string &value) {
-  return true;
+bool LocalEngine::read(const std::string key, std::string& value) {
+    value = mp[key];
+    return true;
 }
-
 
 RemoteEngine::~RemoteEngine() {}
 
@@ -59,8 +61,8 @@ RemoteEngine::~RemoteEngine() {}
  * @return {bool} true for success
  */
 bool RemoteEngine::start(const std::string addr, const std::string port) {
-  /* true for success*/
-  return true;
+    /* true for success*/
+    return true;
 }
 
 /**
@@ -73,5 +75,7 @@ void RemoteEngine::stop() {}
  * @description: get engine alive state
  * @return {bool}  true for alive
  */
-bool RemoteEngine::alive() { return true; }
+bool RemoteEngine::alive() {
+    return true;
 }
+} // namespace kv
